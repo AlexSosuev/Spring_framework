@@ -1,6 +1,6 @@
 package Seminar_1;
 
-import Seminar_1.model.Person;
+import Seminar_1.domane.Person;
 
 public class Main {
     public static void main(String[] args) {

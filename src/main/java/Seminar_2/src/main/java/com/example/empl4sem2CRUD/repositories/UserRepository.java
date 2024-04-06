@@ -43,8 +43,8 @@ public class UserRepository {
         jdbc.update(sql, id);
     }
 
-    public void updateById(int id, String firstName, String lastName){
+    public void updateById(int id, User user){
         String sql = "UPDATE userTable SET firstName=?, lastName=? WHERE id=?";
-        jdbc.update(sql, firstName, lastName, id);
+        jdbc.update(sql, user.getFirstName(), user.getLastName(), id);
     }
 }

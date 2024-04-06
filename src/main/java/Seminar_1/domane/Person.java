@@ -1,4 +1,4 @@
-package Seminar_1.model;
+package Seminar_1.domane;
 
 import com.google.gson.Gson;
 import org.apache.commons.lang3.builder.EqualsBuilder;

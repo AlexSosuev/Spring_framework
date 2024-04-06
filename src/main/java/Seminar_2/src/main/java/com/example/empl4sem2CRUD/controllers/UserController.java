@@ -45,7 +45,7 @@ public class UserController {
 
     @PostMapping("/user-update")
     public String updateUser(User user) {
-        userService.updateById(user.getId(), user.getFirstName(), user.getLastName());
+        userService.updateById(user.getId(), user);
         return "redirect:/users";
     }
 }
