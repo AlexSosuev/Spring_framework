@@ -13,23 +13,24 @@ public class NoteService {
 
     private final NoteRepository noteRepository;
 
+// Получение списка заметок
     public List<Note> getAllNote() {
         return noteRepository.findAll();
     }
-
+// Создание заметки
     public Note createNote(Note note) {
         return noteRepository.save(note);
     }
-
-    public Note getNoteById(Long id) {
+//Найти заметку по ID
+   public Note getNoteById(Long id) {
         return noteRepository.findById(id).orElse(null);
     }
-
+//Изменение заметки по Id
     public Note updateNoteById(Long id, Note note) {
         note.setId(id);
         return noteRepository.save(note);
     }
-
+//Удаление заметки по Id
     public void deleteById(Long id) {
         noteRepository.deleteById(id);
     }

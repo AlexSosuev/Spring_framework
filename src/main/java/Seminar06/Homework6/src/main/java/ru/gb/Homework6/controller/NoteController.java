@@ -35,7 +35,7 @@ public class NoteController {
         return new ResponseEntity<>(noteService.updateNoteById(id,note),HttpStatus.OK);
     }
 
-    @PostMapping("delete/{id}")
+    @DeleteMapping("delete/{id}")
     public ResponseEntity<Note> deleteNote(@PathVariable Long id){
         noteService.deleteById(id);
         return ResponseEntity.ok().build();
