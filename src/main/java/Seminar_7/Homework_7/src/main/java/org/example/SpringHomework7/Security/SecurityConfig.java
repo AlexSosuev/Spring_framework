@@ -23,7 +23,7 @@ public class SecurityConfig {
     @Bean
     SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
-                .authorizeHttpRequests((authorize) -> authorize
+                .authorizeHttpRequests(authorize -> authorize
                         .requestMatchers("/", "/css/**", "/showroom", "/login").permitAll()
                         .requestMatchers("/user-profile").hasAnyRole("USER", "ADMIN")
                         .requestMatchers("/admin-profile", "book-sell/{name}").hasAnyRole("ADMIN")
@@ -48,8 +48,15 @@ public class SecurityConfig {
     //создаем пользователей, задаем им имена, пароли и роли для менеджера пользовательских данных
     @Bean
     UserDetailsManager inMemoryUserDetailsManager() {
-        var commonUser = User.withUsername("user").password("{noop}password").roles("USER").build();
-        var admin = User.withUsername("admin").password("{noop}password").roles("ADMIN").build();
-        return new InMemoryUserDetailsManager(commonUser, admin);
+        return new InMemoryUserDetailsManager(
+                User.withUsername("user")
+                        .password("{noop}password")
+                        .roles("USER")
+                        .build(),
+                User.withUsername("admin")
+                        .password("{noop}password")
+                        .roles("ADMIN")
+                        .build()
+        );
     }
 }
